@@ -12,41 +12,60 @@ struct ContentView: View {
     
     let locationManager = CLLocationManager()
     
+    func signIn() {
+        
+    }
+    
     var body: some View {
-        Map() {
-//            Marker("Apple HQ", systemImage: "laptopcomputer", coordinate: .appleHQ)
-//            Marker("Panama Park", systemImage: "tree.fill", coordinate: .panamaPark).tint(.green)
+        VStack(spacing: 0) {
+            HStack() {
+                Button(action: signIn) {
+                    Text("The Woodlands TAG").font(.title2).bold().tint(.black)
+                }.padding()
+                Spacer()
+                Button(action: signIn) {
+                    Image(systemName: "person.fill").tint(.black)
+                }.padding()
+            }.background(.green)
             
-            Annotation("Apple HQ", coordinate: .appleHQ, anchor: .center) {
-                Image(systemName: "laptopcomputer")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundStyle(.white)
-                    .frame(width: 20, height: 20)
-                    .padding(7)
-                    .background(.pink.gradient, in: .circle)
+            Map() {
+                Annotation("Apple HQ", coordinate: .appleHQ, anchor: .center) {
+                    Image(systemName: "laptopcomputer")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .foregroundStyle(.white)
+                        .frame(width: 20, height: 20)
+                        .padding(7)
+                        .background(.pink.gradient, in: .circle)
+                }
+                Annotation("Panama Park", coordinate: .panamaPark, anchor: .bottom) {
+                    Image(systemName: "tree.fill")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .foregroundStyle(.white)
+                        .frame(width: 20, height: 20)
+                        .padding(7)
+                        .background(.green.gradient, in: .circle)
+                }
+                
+                UserAnnotation()
             }
-            Annotation("Panama Park", coordinate: .panamaPark, anchor: .bottom) {
-                Image(systemName: "tree.fill")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundStyle(.white)
-                    .frame(width: 20, height: 20)
-                    .padding(7)
-                    .background(.green.gradient, in: .circle)
+            .onAppear() {
+                locationManager.requestWhenInUseAuthorization()
             }
+            .mapControls() {
+                MapUserLocationButton()
+                MapCompass()
+                MapScaleView()
+            }
+            .mapStyle(.hybrid)
             
-            UserAnnotation()
+            HStack() {
+                Image(systemName: "laptopcomputer").padding()
+                Image(systemName: "laptopcomputer").padding()
+                Image(systemName: "laptopcomputer").padding()
+            }
         }
-        .onAppear() {
-            locationManager.requestWhenInUseAuthorization()
-        }
-        .mapControls() {
-            MapUserLocationButton()
-            MapCompass()
-            MapScaleView()
-        }
-        .mapStyle(.hybrid)
     }
 }
 
