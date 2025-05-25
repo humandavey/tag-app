@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var showSidebar = false
+    @State private var showProfileView = false
     
     var body: some View {
         ZStack {
@@ -27,7 +28,7 @@ struct ContentView: View {
                         }
                         ToolbarItem(placement: .topBarTrailing) {
                             Button(action: {
-                                
+                                showProfileView.toggle()
                             }, label: {
                                 Image(systemName: "person.fill")
                                     .tint(.black)
@@ -37,6 +38,11 @@ struct ContentView: View {
             }
             
             SidebarView(isShowing: $showSidebar)
+        }
+        .sheet(isPresented: $showProfileView) {
+            ProfileView()
+                .presentationDetents([.fraction(0.3), .fraction(0.9)])
+                .presentationDragIndicator(.visible)
         }
     }
 }
