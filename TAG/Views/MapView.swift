@@ -6,10 +6,43 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct MapView: View {
+    let locationManager = CLLocationManager()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Map() {
+            Annotation("Apple HQ", coordinate: .appleHQ, anchor: .center) {
+                Image(systemName: "laptopcomputer")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundStyle(.white)
+                    .frame(width: 20, height: 20)
+                    .padding(7)
+                    .background(.pink.gradient, in: .circle)
+            }
+            Annotation("Panama Park", coordinate: .panamaPark, anchor: .bottom) {
+                Image(systemName: "tree.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundStyle(.white)
+                    .frame(width: 20, height: 20)
+                    .padding(7)
+                    .background(.green.gradient, in: .circle)
+            }
+            
+            UserAnnotation()
+        }
+        .onAppear() {
+            locationManager.requestWhenInUseAuthorization()
+        }
+        .mapControls() {
+            MapUserLocationButton()
+            MapCompass()
+            MapScaleView()
+        }
+        .mapStyle(.hybrid)
     }
 }
 

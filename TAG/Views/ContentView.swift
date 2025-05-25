@@ -8,8 +8,36 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showSidebar = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            NavigationStack {
+                GameView()
+                    .toolbar {
+                        ToolbarItem(placement: .topBarLeading) {
+                            Button(action: {
+                                showSidebar.toggle()
+                            }, label: {
+                                Text("The Woodlands TAG")
+                                    .font(.title2)
+                                    .tint(.black)
+                                    .bold()
+                            })
+                        }
+                        ToolbarItem(placement: .topBarTrailing) {
+                            Button(action: {
+                                
+                            }, label: {
+                                Image(systemName: "person.fill")
+                                    .tint(.black)
+                            })
+                        }
+                    }
+            }
+            
+            SidebarView(isShowing: $showSidebar)
+        }
     }
 }
 
