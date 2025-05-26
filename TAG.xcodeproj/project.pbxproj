@@ -55,16 +55,6 @@
 			path = TAG;
 			sourceTree = "<group>";
 		};
-		5AD623F02DDD779400B6182C /* TAGTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TAGTests;
-			sourceTree = "<group>";
-		};
-		5AD623FA2DDD779400B6182C /* TAGUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TAGUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +88,6 @@
 				5AAC70192DE3949E0007E435 /* .gitignore */,
 				5AAC701B2DE395040007E435 /* readme.md */,
 				5AD623E12DDD779300B6182C /* TAG */,
-				5AD623F02DDD779400B6182C /* TAGTests */,
-				5AD623FA2DDD779400B6182C /* TAGUITests */,
 				5AD623E02DDD779300B6182C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -152,9 +140,6 @@
 			dependencies = (
 				5AD623EF2DDD779400B6182C /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				5AD623F02DDD779400B6182C /* TAGTests */,
-			);
 			name = TAGTests;
 			packageProductDependencies = (
 			);
@@ -174,9 +159,6 @@
 			);
 			dependencies = (
 				5AD623F92DDD779400B6182C /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				5AD623FA2DDD779400B6182C /* TAGUITests */,
 			);
 			name = TAGUITests;
 			packageProductDependencies = (

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showSidebar = false
+    @State private var showSelectableGamesView = false
     @State private var showProfileView = false
     
     var body: some View {
@@ -18,7 +18,7 @@ struct ContentView: View {
                     .toolbar {
                         ToolbarItem(placement: .topBarLeading) {
                             Button(action: {
-                                showSidebar.toggle()
+                                showSelectableGamesView.toggle()
                             }, label: {
                                 Text("The Woodlands TAG")
                                     .font(.title2)
@@ -36,12 +36,15 @@ struct ContentView: View {
                         }
                     }
             }
-            
-            SidebarView(isShowing: $showSidebar)
         }
         .sheet(isPresented: $showProfileView) {
             ProfileView()
                 .presentationDetents([.fraction(0.3), .fraction(0.9)])
+                .presentationDragIndicator(.visible)
+        }
+        .sheet(isPresented: $showSelectableGamesView) {
+            SelectableGameView()
+                .presentationDetents([.fraction(0.9)])
                 .presentationDragIndicator(.visible)
         }
     }
