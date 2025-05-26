@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var showSelectableGamesView = false
     @State private var showProfileView = false
+    @State private var currentProfileDetent = PresentationDetent.fraction(0.3)
     
     var body: some View {
         ZStack {
@@ -38,8 +39,8 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $showProfileView) {
-            ProfileView()
-                .presentationDetents([.fraction(0.3), .fraction(0.9)])
+            ProfileView(currentDetent: $currentProfileDetent)
+                .presentationDetents([.fraction(0.3), .fraction(0.9)], selection: $currentProfileDetent)
                 .presentationDragIndicator(.visible)
         }
         .sheet(isPresented: $showSelectableGamesView) {
