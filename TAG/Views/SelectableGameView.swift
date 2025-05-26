@@ -2,16 +2,14 @@
 //  SelectableGameView.swift
 //  TAG
 //
-//  Created by Davey Adams on 5/25/25.
+//  Created by Davey Adams on 5/26/25.
 //
 
 import SwiftUI
 
 struct SelectableGameView: View {
     var body: some View {
-        HStack {
-            Text("The Woodlands TAG")
-        }
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
