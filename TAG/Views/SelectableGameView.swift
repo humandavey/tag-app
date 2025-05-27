@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SelectableGameView: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
         Text("Your Games")
             .font(.title)
@@ -25,26 +27,36 @@ struct SelectableGameView: View {
         Divider()
         
         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(.blue)
-                    .frame(height: 100)
-                VStack {
-                    Image(systemName: "person.2.badge.plus.fill")
-                        .font(.system(size: 32))
-                    Text("Join a group")
-                        .multilineTextAlignment(.center)
+            Button {
+                print("tapped join")
+            } label: {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.blue)
+                        .frame(height: 100)
+                    VStack {
+                        Image(systemName: "person.2.badge.plus.fill")
+                            .font(.system(size: 32))
+                        Text("Join a game")
+                            .multilineTextAlignment(.center)
+                    }
+                    .tint(colorScheme == ColorScheme.dark ? .white : .black)
                 }
             }
-            ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(.green)
-                    .frame(height: 100)
-                VStack {
-                    Image(systemName: "plus")
-                        .font(.system(size: 32))
-                    Text("Create a group")
-                        .multilineTextAlignment(.center)
+            Button {
+                print("tapped create")
+            } label: {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.green)
+                        .frame(height: 100)
+                    VStack {
+                        Image(systemName: "plus")
+                            .font(.system(size: 32))
+                        Text("Create a game")
+                            .multilineTextAlignment(.center)
+                    }
+                    .tint(colorScheme == ColorScheme.dark ? .white : .black)
                 }
             }
         }.padding()
@@ -56,18 +68,26 @@ struct GameCard: View {
     @State var symbol: String
     @State var color: Color
     
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 10)
-                .fill(color)
-                .frame(height: 100)
-            VStack {
-                Image(systemName: symbol)
-                    .font(.system(size: 32))
-                Text(groupName)
-                    .multilineTextAlignment(.center)
+        Button {
+            print("tapped \(groupName)")
+        } label: {
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(color)
+                    .frame(height: 100)
+                VStack {
+                    Image(systemName: symbol)
+                        .font(.system(size: 32))
+                    Text(groupName)
+                        .multilineTextAlignment(.center)
+                }
             }
         }
+        .buttonStyle(PlainButtonStyle())
+        .tint(colorScheme == ColorScheme.dark ? .white : .black)
         .contextMenu() {
             Button(role: .destructive) {
                 
