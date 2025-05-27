@@ -12,6 +12,8 @@ struct ContentView: View {
     @State private var showProfileView = false
     @State private var currentProfileDetent = PresentationDetent.fraction(0.3)
     
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
         ZStack {
             NavigationStack {
@@ -23,7 +25,7 @@ struct ContentView: View {
                             }, label: {
                                 Text("The Woodlands TAG")
                                     .font(.title2)
-                                    .tint(.black)
+                                    .tint(colorScheme == ColorScheme.dark ? .white : .black)
                                     .bold()
                             })
                         }
@@ -32,7 +34,7 @@ struct ContentView: View {
                                 showProfileView.toggle()
                             }, label: {
                                 Image(systemName: "person.fill")
-                                    .tint(.black)
+                                    .tint(colorScheme == ColorScheme.dark ? .white : .black)
                             })
                         }
                     }
