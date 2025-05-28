@@ -8,12 +8,18 @@
 import SwiftUI
 
 struct SelectableGameView: View {
+    @State private var showJoinAlert = false
+    @State private var showCreateAlert = false
+    
+    @State private var joinAlertText = ""
+    
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         Text("Your Games")
             .font(.title)
             .bold()
+            .foregroundStyle(Color(hex: "2a2a2a"))
             .padding([.top], 20)
         ScrollView {
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
@@ -28,7 +34,7 @@ struct SelectableGameView: View {
         
         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
             Button {
-                print("tapped join")
+                showJoinAlert = true
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
@@ -40,11 +46,19 @@ struct SelectableGameView: View {
                         Text("Join a game")
                             .multilineTextAlignment(.center)
                     }
-                    .tint(colorScheme == ColorScheme.dark ? .white : .black)
+                    .tint(colorScheme == ColorScheme.dark ? .white : Color(hex: "2a2a2a"))
+                }
+            }.alert("Enter Join Code", isPresented: $showJoinAlert) {
+                TextField("Enter join code", text: $joinAlertText)
+                Button("Cancel") {
+                    
+                }
+                Button("Join") {
+                    
                 }
             }
             Button {
-                print("tapped create")
+                showCreateAlert = true
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
@@ -56,7 +70,14 @@ struct SelectableGameView: View {
                         Text("Create a game")
                             .multilineTextAlignment(.center)
                     }
-                    .tint(colorScheme == ColorScheme.dark ? .white : .black)
+                    .tint(colorScheme == ColorScheme.dark ? .white : Color(hex: "2a2a2a"))
+                }
+            }.alert("Create Game", isPresented: $showCreateAlert) {
+                Button("Cancel") {
+                    
+                }
+                Button("Create") {
+                    
                 }
             }
         }.padding()
@@ -84,10 +105,11 @@ struct GameCard: View {
                     Text(groupName)
                         .multilineTextAlignment(.center)
                 }
+                .foregroundStyle(Color(hex: "2a2a2a"))
             }
         }
         .buttonStyle(PlainButtonStyle())
-        .tint(colorScheme == ColorScheme.dark ? .white : .black)
+        .tint(colorScheme == ColorScheme.dark ? .white : Color(hex: "2a2a2a"))
         .contextMenu() {
             Button(role: .destructive) {
                 

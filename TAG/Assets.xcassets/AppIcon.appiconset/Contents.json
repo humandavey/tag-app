@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "tag_logo_1024_new.png",
+      "filename" : "daveys TAG game - 1.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -13,7 +13,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "tag_logo_dark.png",
+      "filename" : "daveys TAG game - 2.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -25,67 +25,67 @@
           "value" : "tinted"
         }
       ],
-      "filename" : "tag_logo_tinted.png",
+      "filename" : "daveys TAG game - 3.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
     },
     {
-      "filename" : "tag_logo_16.png",
+      "filename" : "tag_logo_16_2.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "16x16"
     },
     {
-      "filename" : "tag_logo_32.png",
+      "filename" : "tag_logo_32_2 1.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "16x16"
     },
     {
-      "filename" : "tag_logo_32 1.png",
+      "filename" : "tag_logo_32_2.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "32x32"
     },
     {
-      "filename" : "tag_logo_64.png",
+      "filename" : "tag_logo_64 (1).png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "32x32"
     },
     {
-      "filename" : "tag_logo_128.png",
+      "filename" : "tag_logo_128_2.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "128x128"
     },
     {
-      "filename" : "tag_logo_256.png",
+      "filename" : "tag_logo_256_3 1.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "128x128"
     },
     {
-      "filename" : "tag_logo_256 1.png",
+      "filename" : "tag_logo_256_3.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "256x256"
     },
     {
-      "filename" : "tag_logo_512.png",
+      "filename" : "daveys TAG game - 6.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "256x256"
     },
     {
-      "filename" : "tag_logo_512 1.png",
+      "filename" : "daveys TAG game - 5.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "512x512"
     },
     {
-      "filename" : "tag_logo_1024.png",
+      "filename" : "daveys TAG game - 4.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"

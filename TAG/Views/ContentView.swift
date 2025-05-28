@@ -24,7 +24,7 @@ struct ContentView: View {
                             }, label: {
                                 Text("The Woodlands TAG")
                                     .font(.title2)
-                                    .tint(colorScheme == ColorScheme.dark ? .white : .black)
+                                    .tint(colorScheme == ColorScheme.dark ? .white : Color(hex: "2a2a2a"))
                                     .bold()
                             })
                         }
@@ -33,7 +33,7 @@ struct ContentView: View {
                                 showProfileView.toggle()
                             }, label: {
                                 Image(systemName: "person.fill")
-                                    .tint(colorScheme == ColorScheme.dark ? .white : .black)
+                                    .tint(colorScheme == ColorScheme.dark ? .white : Color(hex: "2a2a2a"))
                             })
                         }
                     }
