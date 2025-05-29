@@ -10,6 +10,8 @@ import SwiftUI
 struct ProfileView: View {
     @State var usernameText = "@humandavey"
     
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
         VStack() {
             Image(systemName: "person.circle.fill")
@@ -37,7 +39,7 @@ struct ProfileView: View {
                 OptionButton(title: "About", symbol: "info.circle") {
                     Text("gurt: yo")
                 }
-            }
+            }.foregroundStyle(colorScheme == ColorScheme.dark ? .white : Color(hex: "2a2a2a"))
             
             Spacer()
         }.padding([.top], 50)

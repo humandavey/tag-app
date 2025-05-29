@@ -19,7 +19,7 @@ struct SelectableGameView: View {
         Text("Your Games")
             .font(.title)
             .bold()
-            .foregroundStyle(Color(hex: "2a2a2a"))
+            .foregroundStyle(colorScheme == ColorScheme.dark ? .white : Color(hex: "2a2a2a"))
             .padding([.top], 20)
         ScrollView {
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
@@ -105,7 +105,7 @@ struct GameCard: View {
                     Text(groupName)
                         .multilineTextAlignment(.center)
                 }
-                .foregroundStyle(Color(hex: "2a2a2a"))
+                .foregroundStyle(colorScheme == ColorScheme.dark ? .white : Color(hex: "2a2a2a"))
             }
         }
         .buttonStyle(PlainButtonStyle())
